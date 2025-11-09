@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include "Interfaces.hpp"
 #include <utility>
+#include <iostream>
 //https://www.geeksforgeeks.org/dsa/implementation-deque-using-circular-array/
 template <typename T>
 class ABDQ : public DequeInterface<T> {
@@ -43,13 +44,13 @@ public:
         other.back_ = 0;
     }
     ABDQ& operator=(const ABDQ& other){
-        if(this == &rhs) return *this;
+        if(this == &other) return *this;
         delete[] data_;
-        capacity_ = rhs.capacity_;
-        size_ = rhs.size_;
+        capacity_ = other.capacity_;
+        size_ = other.size_;
         data_ = new T[capacity_];
         for (int i = 0; i<size_; i++){
-            data_[i] = rhs.data_[(rhs.front_+i)% rhs.capacity_];
+            data_[i] = other.data_[(other.front_+i)% other.capacity_];
         }
         front_ = 0;
         back_ = size_;
@@ -65,9 +66,9 @@ public:
         back_ = other.back_;
         other.data_ = nullptr;
         other.capacity_ = 0;
-        rhs.size_ = 0;
-        rhs.front_ = 0;
-        rhs.back_ = 0;
+        other.size_ = 0;
+        other.front_ = 0;
+        other.back_ = 0;
         return *this;
     }
     ~ABDQ() override{
@@ -110,7 +111,7 @@ public:
         return val;
     }
     T popBack() override{
-        back_ = (back_ + capaity_ -1) % capacity_;
+        back_ = (back_ + capacity_ -1) % capacity_;
         T val = data_[back_];
         --size_;
         return val;
