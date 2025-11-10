@@ -38,7 +38,7 @@ public:
     ABS(ABS&& other) noexcept {
         capacity_ = other.capacity_;
         curr_size_ = other.curr_size_;
-        array_ = other.capacity_;
+        array_ = other.array_;
         other.curr_size_ = 0;
         other.capacity_ = 0;
         other.array_ = nullptr;
@@ -88,18 +88,20 @@ public:
     }
 
     T peek() const override {
-        if (curr_size_ != 0) {
-            return array_[curr_size_ - 1];
+        if (curr_size_ <= 0) {
+            throw std::runtime_error("error");
+            
         }
-        throw std::runtime_error("error");
+        return array_[curr_size_ - 1];
+        
     }
 
     T pop() override {
-        if (curr_size_ != 0) {
-            curr_size_--;
-            return array_[curr_size_ - 1];
+        if (curr_size_ <= 0) {
+           throw std::runtime_error("error"); 
         }
-        throw std::runtime_error("error");
+        curr_size_--;
+        return array_[curr_size_ - 1];
     }
     void PrintForward() const{
         for( size_t i = 0; i <curr_size_; i++){
