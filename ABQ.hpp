@@ -96,11 +96,14 @@ public:
         if(curr_size_ != 0){
             return array_[0];
         }
-        return 0;
+        throw std::runtime_error("error");
     }
 
     // Deletion
     T dequeue() override{
+        if(curr_size_ == 0){
+            throw std::runtime_error("error");
+        }
         T out = array_[0];
         for(size_t i=0; i<curr_size_-1; i++){
             array_[i] = array_[i+1];
