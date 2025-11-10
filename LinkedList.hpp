@@ -33,9 +33,15 @@ public:
 		return count;
 	}
 	Node* getHead(){
+		if(count==0){
+			return nullptr;
+		}
 		return head;
 	}
 	const Node* getHead() const{
+		if(count==0){
+			return nullptr;
+		}
 		return head;
 	}
 	Node* getTail(){
@@ -45,6 +51,9 @@ public:
 		return tail;
 	}
 	const Node* getTail() const{
+		if(count==0){
+			return nullptr;
+		}
 		return tail;
 	}
 
