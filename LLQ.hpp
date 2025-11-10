@@ -30,6 +30,9 @@ public:
 
     // Access
     T peek() const override{
+        if(!head){
+            throw std::runtime_error("error");
+        }
         return list.getHead()->data;
     }
 
