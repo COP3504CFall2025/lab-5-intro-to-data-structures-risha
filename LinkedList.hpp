@@ -39,6 +39,9 @@ public:
 		return head;
 	}
 	Node* getTail(){
+		if(count==0){
+			return nullptr;
+		}
 		return tail;
 	}
 	const Node* getTail() const{
