@@ -91,7 +91,7 @@ public:
         if (curr_size_ != 0) {
             return array_[curr_size_ - 1];
         }
-        throw std::runtime_error("Stack is empty");
+        throw std::runtime_error("error");
     }
 
     T pop() override {
@@ -99,7 +99,7 @@ public:
             curr_size_--;
             return array_[curr_size_ - 1];
         }
-        throw std::runtime_error("Stack is empty");
+        throw std::runtime_error("error");
     }
     void PrintForward() const{
         for( size_t i = 0; i <curr_size_; i++){
