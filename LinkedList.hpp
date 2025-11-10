@@ -156,6 +156,9 @@ public:
 	// Construction/Destruction
 	LinkedList(): head(nullptr), tail(nullptr), count(0){}
 	LinkedList(const LinkedList<T>& list){
+		head = nullptr;
+		tail = nullptr;
+		count = 0;
 		for(Node* i = list.head; i!=nullptr; i = i->next){
 			addTail(i->data);
 		}
