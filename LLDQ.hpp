@@ -28,11 +28,17 @@ public:
     // Core Removal Operations
     T popFront() override{
         T out = list.getHead()->data;
+        if(list.getCount()==0){
+            throw std::runtime_error("error");
+        }
         list.removeHead();
         return data;
     }
     T popBack() override{
         T data = list.getTail()->data;
+        if(list.getCount()==0){
+            throw std::runtime_error("error");
+        }
         list.removeTail();
         return data;
     }
