@@ -22,7 +22,7 @@ public:
     T dequeue() override{
         T out = list.getHead()->data;
         list.removeHead();
-        return data;
+        return out;
     }
 
     // Access

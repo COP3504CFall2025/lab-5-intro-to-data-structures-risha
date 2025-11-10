@@ -106,7 +106,7 @@ public:
             array_[i] = array_[i+1];
         }
         curr_size_--;
-        return value;
+        return out;
     }
 
 };
