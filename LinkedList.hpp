@@ -109,7 +109,7 @@ public:
 		return true;
 
 	}
-	void Clear(){
+	void clear(){
 		int x = count;
 		for(int i = 0; i<x; i++){
 			removeHead();
@@ -121,7 +121,7 @@ public:
 		if (this == &other){
 			return *this;
 		}
-		Clear();
+		clear();
 		head = other.head;
 		tail = other.tail;
 		count = other.count;
@@ -134,7 +134,7 @@ public:
 		if(this==&rhs){
 			return *this;
 		}
-		Clear();
+		clear();
 		for(Node* i = rhs.head; i!=nullptr; i = i->next){
 			addTail(i->data);
 		}
@@ -157,7 +157,7 @@ public:
 		other.count = 0;
 	}
 	~LinkedList(){
-		Clear();
+		clear();
 	}
 
 
