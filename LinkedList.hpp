@@ -92,15 +92,15 @@ public:
 		if(!head){
 			return false;
 		}
-		if(head->next){
-			head = head->next;
-			delete head->prev;
+		Node* temp = head;
+		head = head->next;
+		if(head){
 			head->prev = nullptr;
 		}
 		else{
-			delete head;
-			head = nullptr;
+			tail = nullptr;
 		}
+		delete temp;
 		count--;
 		return true;
 	}
@@ -108,15 +108,15 @@ public:
 		if(!tail){
 			return false;
 		}
-		if(tail->prev){
-			tail = tail->prev;
-			delete tail->next;
+		Node* temp = tail;
+		tail = tail->prev;
+		if(tail){
 			tail->next = nullptr;
 		}
 		else{
-			delete tail;
-			tail = nullptr;
+			head = nullptr;
 		}
+		delete temp;
 		count--;
 		return true;
 
