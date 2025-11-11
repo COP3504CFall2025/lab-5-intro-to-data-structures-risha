@@ -102,7 +102,7 @@ public:
            throw std::runtime_error("error"); 
         }
         curr_size_--;
-        T out = array_[curr_size_]
+        T out = array_[curr_size_];
         if(capacity_>curr_size_*2 && capacity_>1){
            size_t high = capacity_ / 2;
            if (high == 0) high = 1;
@@ -114,7 +114,7 @@ public:
             array_ = fix;
             capacity_ = high;
         }
-        return array_[curr_size_ - 1];
+        return out;
     }
     void PrintForward() const{
         for( size_t i = 0; i <curr_size_; i++){
