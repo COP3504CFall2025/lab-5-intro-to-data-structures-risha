@@ -55,6 +55,7 @@ public:
         capacity_ = rhs.capacity_;
         curr_size_ = rhs.curr_size_;
         array_ = rhs.array_;
+        rhs.array_ = nullptr;
         rhs.curr_size_ = 0;
         rhs.capacity_ = 0;
         return *this;
