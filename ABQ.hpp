@@ -110,6 +110,17 @@ public:
             array_[i] = array_[i+1];
         }
         curr_size_--;
+        if(capacity_>curr_size_*2 && capacity_>1){
+           size_t high = capacity_ / 2;
+           if (high == 0) high = 1;
+           T* fix = new T[high];
+           for(int i = 0; i<curr_size_; i++){
+                fix[i] = array_[i];
+            }
+            delete[] array_;
+            array_ = fix;
+            capacity_ = high;
+        }
         return out;
     }
 
