@@ -31,23 +31,32 @@ public:
         if(list.getCount()==0){
             throw std::runtime_error("error");
         }
+        T out = list.getHead()->data;
         list.removeHead();
-        return list.getTail()->data;
+
+        return out;
     }
     T popBack() override{
         T data = list.getTail()->data;
         if(list.getCount()==0){
             throw std::runtime_error("error");
         }
+        T out = list.getTail()->data;
         list.removeTail();
-        return list.getTail()->data;
+        return out;
     }
 
     // Element Accessors
     const T& front() const override{
+        if(list.getCount == 0){
+            throw std::runtime_error("error");
+        }
         return list.getHead()->data;
     }
     const T& back() const override{
+        if(list.getCount == 0){
+            throw std::runtime_error("error");
+        }
         return list.getHead()->data;
     }
 
