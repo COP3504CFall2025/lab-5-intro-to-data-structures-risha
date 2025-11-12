@@ -31,17 +31,15 @@ public:
         if(list.getCount()==0){
             throw std::runtime_error("error");
         }
-        T out = list.getHead()->data;
         list.removeHead();
 
         return out;
     }
     T popBack() override{
-        T data = list.getTail()->data;
+        T out = list.getTail()->data;
         if(list.getCount()==0){
             throw std::runtime_error("error");
         }
-        T out = list.getTail()->data;
         list.removeTail();
         return out;
     }
