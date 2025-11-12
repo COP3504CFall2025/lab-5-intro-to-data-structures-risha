@@ -32,7 +32,7 @@ public:
             throw std::runtime_error("error");
         }
         list.removeHead();
-        return data;
+        return list.getTail()->data;
     }
     T popBack() override{
         T data = list.getTail()->data;
@@ -40,7 +40,7 @@ public:
             throw std::runtime_error("error");
         }
         list.removeTail();
-        return data;
+        return list.getTail()->data;
     }
 
     // Element Accessors
