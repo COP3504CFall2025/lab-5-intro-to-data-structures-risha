@@ -28,6 +28,7 @@ public:
 
 template <typename T>
 class DequeInterface {
+public:
     virtual void pushFront(const T& item) = 0;
     virtual void pushBack(const T& item) = 0;
     virtual T popFront() = 0;
