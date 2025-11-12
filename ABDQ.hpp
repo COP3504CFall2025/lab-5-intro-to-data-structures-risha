@@ -105,12 +105,18 @@ public:
 
     // Deletion
     T popFront() override{
+        if(size_==0){
+            throw std::runtime_error("error");
+        }
         T val = data_[front_];
         front_ = (front_ + 1)% capacity_;
         size_--;
         return val;
     }
     T popBack() override{
+        if(size_==0){
+            throw std::runtime_error("error");
+        }
         back_ = (back_ + capacity_ -1) % capacity_;
         T val = data_[back_];
         --size_;
@@ -119,10 +125,16 @@ public:
 
     // Access
     const T& front() const override{
+        if(size_==0){
+            throw std::runtime_error("error");
+        }
         return data_[front_];
     }
 
     const T& back() const override{
+        if(size_==0){
+            throw std::runtime_error("error");
+        }
         return data_[back_ - 1];
     }
 
