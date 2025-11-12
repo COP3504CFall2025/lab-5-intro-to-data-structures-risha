@@ -135,7 +135,10 @@ public:
         if(size_==0){
             throw std::runtime_error("error");
         }
-        return data_[back_ - 1];
+        if(data_[back_ - 1]){
+            return data_[back_ - 1];
+        }
+        return data_[0];
     }
 
     // Getters
