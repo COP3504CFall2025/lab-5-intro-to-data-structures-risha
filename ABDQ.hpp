@@ -135,10 +135,9 @@ public:
         if(size_==0){
             throw std::runtime_error("error");
         }
-        if(data_[back_ - 1]){
-            return data_[back_ - 1];
-        }
-        return data_[0];
+    std::size_t idx = (back_ + capacity_ - 1) % capacity_;
+    return data_[idx];
+
     }
 
     // Getters
